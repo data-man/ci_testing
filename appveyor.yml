@@ -30,12 +30,12 @@ build_script:
   - dir c:\MinGW
   - dir c:\MinGW\bin
   - dir c:\mingw-w64
-  - dir c:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1\bin
+  - dir c:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1
   - dir c:\msys64
   - dir c:\msys64\bin
   - git --version --build-options
   - c:\MinGW\bin\gcc --version -v
-  - c:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1\bin\gcc --version -v
+  - c:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1\gcc --version -v
 
 test_script:
   - echo %APPVEYOR_BUILD_NUMBER%
