@@ -2,6 +2,7 @@ version: '{branch}/{build}'
 
 build:
   verbosity: detailed
+  parallel: true
 
 max_jobs: 4
 
@@ -22,10 +23,6 @@ environment:
     MSYS2_DIR: msys64
     MSYSTEM: MINGW64
     BIT: 64
-
-build:
-  parallel: true
-  verbosity: minimal
 
 build_script:
   - git --version
