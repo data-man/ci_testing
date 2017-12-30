@@ -26,6 +26,12 @@ environment:
 
 build_script:
   - dir c:\
+  - dir c:\MinGW
+  - dir c:\MinGW\bin
+  - dir c:\mingw-w64
+  - dir c:\mingw-w64\bin
+  - dir c:\msys64
+  - dir c:\msys64\bin
   - git --version
   - gcc --version --build-options
 
