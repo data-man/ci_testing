@@ -31,6 +31,7 @@ build_script:
   - dir c:\MinGW\bin
   - dir c:\mingw-w64
   - dir c:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1
+  - dir c:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1\mingw64
   - dir c:\msys64
   - dir c:\msys64\mingw32
   - dir c:\msys64\mingw64
