@@ -1,11 +1,49 @@
-version: '{branch}.{build}'
+version: '{branch}/{build}'
+
+build:
+  verbosity: detailed
+
 max_jobs: 4
+
 image:
+- Visual Studio 2013
 - Visual Studio 2015
 - Visual Studio 2017
+
 platform:
 - x86
 - x64
+
+environment:
+  matrix:
+  - COMPILER: msys2
+    PLATFORM: x64
+    MSYS2_ARCH: x86_64
+    MSYS2_DIR: msys64
+    MSYSTEM: MINGW64
+    BIT: 64
+
 build:
   parallel: true
   verbosity: minimal
+
+build_script:
+  - git --version
+  - gcc --version --build-options
+
+test_script:
+  - echo %APPVEYOR_BUILD_NUMBER%
+  - echo %APPVEYOR_BUILD_VERSION%
+  - echo %APPVEYOR_PULL_REQUEST_NUMBER%
+  - echo %APPVEYOR_PULL_REQUEST_TITLE%
+  - echo %APPVEYOR_PULL_REQUEST_HEAD_REPO_NAME%
+  - echo %APPVEYOR_PULL_REQUEST_HEAD_REPO_BRANCH%
+  - echo %APPVEYOR_PULL_REQUEST_HEAD_COMMIT%
+  - echo %APPVEYOR_REPO_NAME%
+  - echo %APPVEYOR_REPO_BRANCH%
+  - echo %APPVEYOR_REPO_COMMIT%
+  - echo %APPVEYOR_REPO_COMMIT_AUTHOR%
+  - echo %APPVEYOR_REPO_COMMIT_MESSAGE%
+  - echo %APPVEYOR_REPO_COMMIT_MESSAGE_EXTENDED%
+  - echo %PLATFORM%
+  - echo %CONFIGURATION%
