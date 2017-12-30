@@ -25,6 +25,7 @@ environment:
     BIT: 64
 
 build_script:
+  - dir c:\
   - git --version
   - gcc --version --build-options
 
