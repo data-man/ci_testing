@@ -37,7 +37,10 @@ build_script:
   - dir c:\msys64\mingw64
   - git --version --build-options
   - c:\MinGW\bin\gcc --version
-  - c:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1\mingw64\gcc --version
+  - c:\mingw-w64\i686-6.3.0-posix-dwarf-rt_v5-rev1\mingw32\bin\gcc --version
+  - c:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1\mingw64\bin\gcc --version
+  - c:\msys64\mingw32\bin\gcc --version
+  - c:\msys64\mingw64\bin\gcc --version
 
 test_script:
   - echo %APPVEYOR_BUILD_NUMBER%
