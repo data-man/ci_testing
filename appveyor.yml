@@ -67,3 +67,4 @@ build_script:
 
 test_script:
   - echo Test
+  - grep --version
