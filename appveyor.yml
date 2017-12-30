@@ -1,3 +1,5 @@
+shallow_clone: true
+
 version: '{branch}/{build}'
 
 build:
@@ -15,6 +17,10 @@ platform:
 - x86
 - x64
 
+configuration:
+  - Debug
+  - Release
+
 environment:
   matrix:
   - COMPILER: msys2
@@ -24,25 +30,7 @@ environment:
     MSYSTEM: MINGW64
     BIT: 64
 
-build_script:
-  - dir c:\
-  - dir c:\Tools
-  - dir c:\MinGW
-  - dir c:\MinGW\bin
-  - dir c:\mingw-w64
-  - dir c:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1
-  - dir c:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1\mingw64
-  - dir c:\msys64
-  - dir c:\msys64\mingw32
-  - dir c:\msys64\mingw64
-  - git --version --build-options
-  - c:\MinGW\bin\gcc --version
-  - c:\mingw-w64\i686-6.3.0-posix-dwarf-rt_v5-rev1\mingw32\bin\gcc --version
-  - c:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1\mingw64\bin\gcc --version
-  - c:\msys64\mingw32\bin\gcc --version
-  - c:\msys64\mingw64\bin\gcc --version
-
-test_script:
+before_build:
   - echo %APPVEYOR_BUILD_NUMBER%
   - echo %APPVEYOR_BUILD_VERSION%
   - echo %APPVEYOR_PULL_REQUEST_NUMBER%
@@ -58,3 +46,24 @@ test_script:
   - echo %APPVEYOR_REPO_COMMIT_MESSAGE_EXTENDED%
   - echo %PLATFORM%
   - echo %CONFIGURATION%
+
+build_script:
+#  - dir c:\
+#  - dir c:\Tools
+#  - dir c:\MinGW
+#  - dir c:\MinGW\bin
+#  - dir c:\mingw-w64
+#  - dir c:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1
+#  - dir c:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1\mingw64
+#  - dir c:\msys64
+#  - dir c:\msys64\mingw32
+#  - dir c:\msys64\mingw64
+#  - git --version --build-options
+#  - c:\MinGW\bin\gcc --version
+#  - c:\mingw-w64\i686-6.3.0-posix-dwarf-rt_v5-rev1\mingw32\bin\gcc --version
+#  - c:\mingw-w64\x86_64-6.3.0-posix-seh-rt_v5-rev1\mingw64\bin\gcc --version
+  - c:\msys64\mingw32\bin\gcc --version
+  - c:\msys64\mingw64\bin\gcc --version
+
+test_script:
+  - echo Test
