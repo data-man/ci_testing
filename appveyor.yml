@@ -48,7 +48,7 @@ before_build:
   - echo %CONFIGURATION%
   - git clone --depth 1 git://github.com/nim-lang/Nim.git
 #  - cd Nim
-  - set APPVEYOR_COMMIT_RANGE="FETCH_HEAD...%APPVEYOR_REPO_COMMIT%"
+#  - set APPVEYOR_COMMIT_RANGE="FETCH_HEAD...%APPVEYOR_REPO_COMMIT%"
   - echo %APPVEYOR_COMMIT_RANGE%
   - git diff --name-only %APPVEYOR_COMMIT_RANGE%
   - git diff --name-only %APPVEYOR_COMMIT_RANGE% | grep -vE '(\.md$)|(\.txt$)(\.rst)|(^(doc|icons|web|))/'
